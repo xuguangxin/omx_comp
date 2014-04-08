@@ -299,7 +299,8 @@ OMX_ERRORTYPE OMXVideoDecoderBase::ProcessorProcess(
             ret = HandleFormatChange();
             CHECK_RETURN_VALUE("HandleFormatChange");
 
-            if (paramPortDefinitionInput->format.video.eCompressionFormat == OMX_VIDEO_CodingVP8)
+            if (paramPortDefinitionInput->format.video.eCompressionFormat == OMX_VIDEO_CodingVP8 ||
+                paramPortDefinitionInput->format.video.eCompressionFormat == OMX_VIDEO_CodingAVC)
             {
                 // Dont use the output buffer if format is changed.
                 // This is temporary workaround for VP8 case. The flush above
